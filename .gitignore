@@ -1,0 +1,9 @@
+# folder
+.idea/
+meizi/
+wuliao/
+.vscode/
+
+# file
+jandan.db
+pic.db
