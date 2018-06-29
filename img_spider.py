@@ -231,5 +231,5 @@ if __name__ == '__main__':
         url = "http://jandan.net/pic/page-"+str(i)+"#comments"
         page, img_info = page_img_spider(url)
         img_wuliao_sqlite(page, img_info)
-    
+
     distinct()

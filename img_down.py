@@ -3,9 +3,6 @@ import os
 import sqlite3
 import urllib.request
 import time
-import re
-from os import listdir
-from os.path import isfile, join
 
 
 def pic_comments():
