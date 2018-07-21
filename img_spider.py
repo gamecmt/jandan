@@ -41,7 +41,7 @@ def get_imgurl(m, r=''):
 def get_hash(js_url):
     '''获取关键字符串'''
     js = requests.get(js_url).text
-    hash_key = re.findall('c=[\w\d]+\(e,"(.*?)"\)', js)[0]
+    hash_key = re.findall(r'c=[\w\d]+\(e,"(.*?)"\)', js)[0]
     return hash_key
 
 
@@ -66,7 +66,7 @@ def get_img_comments(html_comments):
     '''获取html_comments中25张图片所有信息'''
     js_url = 'http:' + \
         re.findall(
-            '<script src="(//cdn.jandan.net/static/min/[\w\d]+\.\d+\.js)"></script>', html_comments)[-1]
+            r'<script src="(//cdn.jandan.net/static/min/[\w\d]+\.\d+\.js)"></script>', html_comments)[-1]
     hash_key = get_hash(js_url)
     soup = BeautifulSoup(html_comments, 'lxml')
     img_comments = soup.select('li')

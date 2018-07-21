@@ -11,7 +11,7 @@ def pic_comments():
     wuliao_comments = conn.execute(
         "select * from wuliao where img_oo - img_xx > 500")
     meizi_comments = conn.execute(
-        "select * from meizi where img_oo - img_xx > 100")
+        "select * from meizi where img_oo - img_xx > 200")
     conn.close
     return wuliao_comments, meizi_comments
 
