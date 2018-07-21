@@ -6,6 +6,7 @@ import re
 import base64
 import os
 import sqlite3
+import time
 
 
 def _md5(value):
@@ -170,6 +171,7 @@ def img_wuliao_sqlite(page, img_info):
     conn.commit()
     conn.close()
     print("wuliao " + page + " records successfully.")
+    time.sleep(5)
 
 
 def img_meizi_sqlite(page, img_info):
@@ -193,6 +195,7 @@ def img_meizi_sqlite(page, img_info):
     conn.commit()
     conn.close()
     print("meizi " + page + " records successfully.")
+    time.sleep(5)
 
 
 def page_img_spider(url):
@@ -227,7 +230,7 @@ if __name__ == '__main__':
     url_origin = 'http://jandan.net/pic'
     html_comments = get_html_comments(url_origin)
     page_origin = int(get_html_page(html_comments))
-    for i in range(page_origin-50, page_origin):
+    for i in range(page_origin-20, page_origin):
         url = "http://jandan.net/pic/page-"+str(i)+"#comments"
         page, img_info = page_img_spider(url)
         img_wuliao_sqlite(page, img_info)
