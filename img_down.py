@@ -9,9 +9,9 @@ def pic_comments():
     conn = sqlite3.connect('jandan.db')
     # 设置下载条件
     wuliao_comments = conn.execute(
-        "select * from wuliao where img_oo - img_xx > 500")
+        "select * from wuliao where img_oo - img_xx > 500 and CURRENT_TIMESTAMP>'2018-07-21 00:00:00'")
     meizi_comments = conn.execute(
-        "select * from meizi where img_oo - img_xx > 200")
+        "select * from meizi where img_oo - img_xx > 200 and CURRENT_TIMESTAMP>'2018-07-21 00:00:00'")
     conn.close
     return wuliao_comments, meizi_comments
 
