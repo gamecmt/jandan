@@ -1,9 +1,15 @@
 # folder
 .idea/
+env/
 meizi/
+meizi1/
+meizibak/
 wuliao/
+wuliao1/
+wuliaobak/
 .vscode/
 
 # file
 jandan.db
 pic.db
+geckodriver.log

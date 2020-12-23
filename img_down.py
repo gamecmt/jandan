@@ -6,21 +6,26 @@ import time
 
 
 def pic_comments():
+    '''读取图片信息'''
     conn = sqlite3.connect('jandan.db')
     # 设置下载条件
     wuliao_comments = conn.execute(
-        "select * from wuliao where img_oo - img_xx > 500 and CURRENT_TIMESTAMP>'2018-07-21 00:00:00'")
+        "select * from wuliao where img_oo - img_xx > 300 and datetime>'2020-12-10 00:00:00'"
+    )
     meizi_comments = conn.execute(
-        "select * from meizi where img_oo - img_xx > 200 and CURRENT_TIMESTAMP>'2018-07-21 00:00:00'")
+        "select * from meizi where img_oo - img_xx > 50 and datetime>'2020-12-10 00:00:00'"
+    )
     conn.close
     return wuliao_comments, meizi_comments
 
 
 def url_open(url):
-    # 将url里面的图片读取出来
+    '''将url里面的图片读取出来'''
     req = urllib.request.Request(url)
     req.add_header(
-        'User-Agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0')
+        'User-Agent',
+        'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0'
+    )
     response = urllib.request.urlopen(req)
     return response.read()
 
@@ -42,12 +47,12 @@ def save_imgs(pic_comment):
         if not os.path.isfile(filename):
             try:
                 pic = url_open(img_url)
-            except:
+            except Exception:
                 continue
             try:
                 with open(filename, 'wb') as f:
                     f.write(pic)
-            except:
+            except Exception:
                 print(filename + " could not down!")
                 continue
             time.sleep(2)
