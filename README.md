@@ -5,8 +5,8 @@
 
 ## jandan下载煎蛋网妹子图和无聊图
 ### 根目录
-1. 运行 jandan_spider.py 将jandan网页爬到 pic.db 数据库里。
-2. 运行 jandan_down.py 将符合条件的网页图片下载下来，妹子图下载在meizi文件夹里，无聊图和热榜都在wuliao文件夹里。
+1. 运行 img_spider.py 将jandan网页爬到 pic.db 数据库里。
+2. 运行 img_down.py 将符合条件的网页图片下载下来，妹子图下载在meizi文件夹里，无聊图和热榜都在wuliao文件夹里。
 
 ### 需安装软件
 本爬虫使用firefox，需安装firefox和下载geckodriver。 https://github.com/mozilla/geckodriver/releases

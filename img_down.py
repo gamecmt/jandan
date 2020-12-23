@@ -6,7 +6,7 @@ import time
 
 
 def pic_comments():
-    '''读取图片信息'''
+    ''' 读取图片信息 '''
     conn = sqlite3.connect('jandan.db')
     # 设置下载条件
     wuliao_comments = conn.execute(
@@ -20,7 +20,7 @@ def pic_comments():
 
 
 def url_open(url):
-    '''将url里面的图片读取出来'''
+    ''' 将url里面的图片读取出来 '''
     req = urllib.request.Request(url)
     req.add_header(
         'User-Agent',
@@ -31,6 +31,7 @@ def url_open(url):
 
 
 def save_imgs(pic_comment):
+    ''' 将图片保存为id号，如果图片是复数，则在后面增加 -数字 区别 '''
     img_id = pic_comment[1]
     img_urls = pic_comment[2]
     img_urls = img_urls.split(',')
